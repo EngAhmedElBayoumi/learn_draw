@@ -21,5 +21,9 @@
     margin: 20px 0;
     padding-left: 50px;
     padding-right: 50px;
-    z-index: 99;
+    z-index: 999;
+}
+
+.controls{
+    z-index:9999;
 }
