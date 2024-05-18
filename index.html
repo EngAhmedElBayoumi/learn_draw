@@ -11,19 +11,26 @@
   <div class="container" id="main_container">
     <div class="row">
       <div class="col-12">
-        <img src="" alt="" class="main_img" id="main_img">
+        <img src="1.png" alt="" class="main_img" id="main_img">
       </div>
     </div>
   </div>
   <div class="row">
+    
     <div class="col-12 group">
-      <input type="range" name="" id="control" class="form-control" value="50" min="0" max="100">
-      <input type="file" name="" id="upload_img" class="form-control" accept="image/*">
-      <button class="btn btn-primary" id="download">
-        <i class="fas fa-switch"></i>
-      </button>
+        <label for="" class="ml-5 mr-3"> دوران</label>
+        <input type="range" id="control_rotation" class="form-control" value="0" min="0" max="360">
+    
+        <label for="" class="ml-5 mr-3"> تحكم في الحجم</label>
+        <input type="range" id="control_resize" class="form-control" value="100" min="50" max="200">
+    
     </div>
-  </div>
+    <div class="col-12 group">
+        <label for="" class="ml-5 mr-3"> الشفافية</label>
+      <input type="range" id="control_opacity" class="form-control" value="50" min="0" max="100">
+      <input type="file" id="upload_img" class="form-control" accept="image/*">
+    </div>
+    
   
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>

@@ -1,25 +1,51 @@
 // main.js
 window.onload = function() {
-    // Get the input field value and set image opacity on load
-    var input = document.getElementById('control').value;
-    document.getElementById('main_img').style.opacity = input / 100;
+    // Initialize controls
+    updateOpacity();
+    updateRotation();
+    updateSize();
 
     // Open camera functionality
     open_camera();
 };
 
 // Event listener to update image opacity based on range input
-document.getElementById('control').addEventListener('input', function() {   
-    if (document.getElementById('control').src != '') {
-        var input = document.getElementById('control').value;
-        document.getElementById('main_img').style.opacity = input / 100;
-    }
+document.getElementById('control_opacity').addEventListener('input', function() {   
+    updateOpacity();
+});
+
+// Event listener to update image rotation based on range input
+document.getElementById('control_rotation').addEventListener('input', function() {
+    updateRotation();
+});
+
+// Event listener to update image size based on range input
+document.getElementById('control_resize').addEventListener('input', function() {
+    updateSize();
 });
 
 // Event listener to update image source based on file input
 document.getElementById('upload_img').addEventListener('change', function() {
     document.getElementById('main_img').src = URL.createObjectURL(this.files[0]);
 });
+
+// Function to update image opacity
+function updateOpacity() {
+    var input = document.getElementById('control_opacity').value;
+    document.getElementById('main_img').style.opacity = input / 100;
+}
+
+// Function to update image rotation
+function updateRotation() {
+    var input = document.getElementById('control_rotation').value;
+    document.getElementById('main_img').style.transform = 'rotate(' + input + 'deg)';
+}
+
+// Function to update image size
+function updateSize() {
+    var input = document.getElementById('control_resize').value;
+    document.getElementById('main_img').style.width = input + '%';
+}
 
 // Function to open the back camera and display the stream
 function open_camera() {
