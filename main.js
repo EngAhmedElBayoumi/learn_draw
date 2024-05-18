@@ -10,8 +10,10 @@ window.onload = function() {
 
 // Event listener to update image opacity based on range input
 document.getElementById('control').addEventListener('input', function() {   
-    var input = document.getElementById('control').value;
-    document.getElementById('main_img').style.opacity = input / 100;
+    if (document.getElementById('control').src != '') {
+        var input = document.getElementById('control').value;
+        document.getElementById('main_img').style.opacity = input / 100;
+    }
 });
 
 // Event listener to update image source based on file input
@@ -19,9 +21,13 @@ document.getElementById('upload_img').addEventListener('change', function() {
     document.getElementById('main_img').src = URL.createObjectURL(this.files[0]);
 });
 
-// Function to open the camera and display the stream
+// Function to open the back camera and display the stream
 function open_camera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: { exact: "environment" }
+        }
+    })
     .then(function(stream) {
         var video = document.createElement('video');
         video.srcObject = stream;
